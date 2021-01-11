@@ -12,11 +12,22 @@ CLCD_I2C_SetCursor(&LCD1, 0, 1);
 CLCD_I2C_WriteString(&LCD1,"hello anh em ");
 ******************************************************************************************************************/
 #include "LCD.h"
-
+#include "string.h"
 //************************** Low Level Function ****************************************************************//
 uint8_t currentline,stringlen;
 uint8_t Xcursor,Ycursor;
 CLCD_I2C_Name LCD1;
+extern char Icharge[10];
+
+uint8_t customChar[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x1F,0x00,
+												0x00,0x00,0x00,0x00,0x00,0x1F,0x1F,0x00,
+												0x00,0x00,0x00,0x1F,0x1F,0x1F,0x1F,0x00,
+												0x00,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x00,
+												0x1F,0x10,0x17,0x17,0x17,0x17,0x10,0x1F,
+												0x1E,0x02,0x1A,0x1B,0x1B,0x1A,0x02,0x1E,
+												0x1F,0x10,0x12,0x13,0x14,0x10,0x10,0x1F,
+												0x1E,0x02,0x02,0x0B,0x13,0x02,0x02,0x1E
+};
 static void CLCD_Delay(uint16_t Time)
 {
 	HAL_Delay(Time);
@@ -52,6 +63,39 @@ static void CLCD_WriteI2C(CLCD_I2C_Name* LCD, uint8_t Data, uint8_t Mode)
 	HAL_I2C_Master_Transmit(LCD->I2C, LCD->ADDRESS, (uint8_t *)Data_I2C, sizeof(Data_I2C), 1000);
 	
 }
+//////////////////////save CGRAM../////////////////////////////
+void SaveCCG(void )
+{
+	CLCD_WriteI2C(&LCD1, 0x40, CLCD_COMMAND);
+	for (uint8_t i=0;i<64;i++)
+		CLCD_WriteI2C(&LCD1,customChar[i],CLCD_DATA);
+//	CLCD_I2C_ReturnHome(&LCD1);
+	
+	
+}
+void CCG(void)
+{
+	//Show signal quality
+	CLCD_I2C_SetCursor(&LCD1, 9, 2);
+	CLCD_WriteI2C(&LCD1, 0x00, CLCD_DATA);
+	CLCD_WriteI2C(&LCD1, 0x01, CLCD_DATA);
+	CLCD_WriteI2C(&LCD1, 0x02, CLCD_DATA);
+	CLCD_WriteI2C(&LCD1, 0x03, CLCD_DATA);
+	//Show status of battery
+	CLCD_I2C_SetCursor(&LCD1,9,3);  
+	if (atof(Icharge)>=0.01)
+	{
+		CLCD_WriteI2C(&LCD1, 0x06, CLCD_DATA);
+		CLCD_WriteI2C(&LCD1, 0x07, CLCD_DATA);
+	}
+	else
+	{
+		CLCD_WriteI2C(&LCD1, 0x04, CLCD_DATA);
+		CLCD_WriteI2C(&LCD1, 0x05, CLCD_DATA);
+	}
+	/////////////////////////////////////////
+}
+
 
 
 //************************** High Level Function ****************************************************************//

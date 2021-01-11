@@ -67,6 +67,10 @@ typedef struct
 	uint8_t FUNCTIONSET;
 	uint8_t BACKLIGHT;
 }CLCD_I2C_Name;
+
+void SaveCCG(void );
+void CCG(void);
+
 void CLCD_I2C_Init(CLCD_I2C_Name* LCD, I2C_HandleTypeDef* hi2c_CLCD, uint8_t Address, uint8_t Colums, uint8_t Rows);
 void CLCD_I2C_SetCursor(CLCD_I2C_Name* LCD, uint8_t Xpos, uint8_t YPos);
 void CLCD_I2C_WriteChar(CLCD_I2C_Name* LCD, char character);

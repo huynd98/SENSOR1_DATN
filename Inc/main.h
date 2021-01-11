@@ -70,6 +70,7 @@ void Error_Handler(void);
 #define LORA_NSS_GPIO_Port GPIOA
 #define SIM_STATUS_Pin GPIO_PIN_11
 #define SIM_STATUS_GPIO_Port GPIOA
+#define SIM_STATUS_EXTI_IRQn EXTI15_10_IRQn
 #define LED_TEST_Pin GPIO_PIN_4
 #define LED_TEST_GPIO_Port GPIOB
 #define ACCELO_INT_Pin GPIO_PIN_5

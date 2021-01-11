@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;     ../Drivers/STM32F1xx_HAL_Driver/Inc;     ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;     ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;     ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;                              ../Drivers/STM32F1xx_HAL_Driver/Inc;                              ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;                              ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;                              ../Drivers/CMSIS/Include;                              ..\w25qxx-master\w25qxx-master</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,6 +388,11 @@
               <FileType>2</FileType>
               <FilePath>startup_stm32f103xb.s</FilePath>
             </File>
+            <File>
+              <FileName>Turbidity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Turbidity.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -409,6 +414,51 @@
               <FilePath>.\Solar.c</FilePath>
             </File>
             <File>
+              <FileName>Lora.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lora.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sim808.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sim808.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GPS.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25qxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\w25qxx-master\w25qxx-master\w25qxx.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25qxx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\w25qxx-master\w25qxx-master\w25qxx.h</FilePath>
+            </File>
+            <File>
+              <FileName>w25qxxConf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\w25qxx-master\w25qxx-master\w25qxxConf.h</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds18b20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ds18b20.c</FilePath>
+            </File>
+            <File>
+              <FileName>Turbidity.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Turbidity.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
@@ -427,6 +477,11 @@
               <FileName>i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Src/rtc.c</FilePath>
             </File>
             <File>
               <FileName>spi.c</FileName>
@@ -452,16 +507,6 @@
               <FileName>stm32f1xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>Lora.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Lora.c</FilePath>
-            </File>
-            <File>
-              <FileName>Lora.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Inc\Lora.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -537,6 +582,16 @@
               <FileName>stm32f1xx_hal_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_rtc_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1xx_hal_spi.c</FileName>

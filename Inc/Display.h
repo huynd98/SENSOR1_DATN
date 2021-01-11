@@ -15,6 +15,9 @@ extern "C" {
 
 void ShowSeaWatch(void  );
 void ShowPower(void );
+void ShowInfor(void);
+void UpdateInfor(void );
+void UpdateSeaWatch(void);
 void UpdateShowPower(void );
 #ifdef __cplusplus
 }
